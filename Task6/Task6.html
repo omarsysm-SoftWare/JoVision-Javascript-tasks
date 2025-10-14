@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Task 6</title>
+</head>
+<body>
+  <button onclick="btn1()">Button 1</button>
+  <button onclick="btn2()">Button 2</button>
+  <button onclick="btn3()">Button 3</button>
+  <button onclick="btn4()">Button 4</button>
+  <button onclick="btn5()">Button 5</button>
+
+  <script>
+    const arr0to100 = () => Array.from({ length: 101 }, (_, i) => i);
+
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    
+    function btn1() {
+      const arr = arr0to100();
+      const noDivBy3 = arr.filter(n => n % 3 !== 0);
+      console.log("Button 1 → Array without numbers divisible by 3:", noDivBy3);
+    }
+
+    function btn2() {
+      const arr = arr0to100();
+      const arr100to150 = Array.from({ length: 51 }, (_, i) => 100 + i); 
+      const combined = arr.concat(arr100to150);
+      console.log("Button 2 → 0..100 plus 100..150:", combined);
+    }
+
+    function btn3() {
+      const arr = arr0to100();
+      const plus3 = arr.map(n => n + 3);
+      console.log("Button 3 → each member + 3:", plus3);
+    }
+
+    function btn4() {
+      const arr = arr0to100();
+      const slice20to40 = arr.slice(20, 41); 
+      console.log("Button 4 → members from index 20 to 40:", slice20to40);
+    }
+
+    function btn5() {
+      const arr = arr0to100();
+      shuffleArray(arr);
+      console.log("Button 5 → shuffled:", arr);
+      const desc = [...arr].sort((a, b) => b - a);
+      console.log("Button 5 → sorted descending:", desc);
+    }
+  </script>
+</body>
+</html>
