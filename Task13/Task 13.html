@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Task 13</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+  <label for="name">Name</label>
+  <input id="name" type="text" placeholder="Name" />
+  <button id="submit">Submit</button>
+  <script>
+    const n=document.getElementById('name')
+    const s=document.getElementById('submit')
+    s.addEventListener('click',async()=>{
+      const r=await fetch(`https://api.agify.io?name=${encodeURIComponent(n.value)}`)
+      const {name,age}=await r.json()
+      alert(`Your name is: ${name}\nYour age is: ${age}`)
+    })
+  </script>
+</body>
+</html>
